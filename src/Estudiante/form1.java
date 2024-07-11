@@ -8,7 +8,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 public class form1 {
-    private JButton buscar;
+    public JButton buscar;
     public JButton registrar;
     public JPanel mainPanel;
 
@@ -18,28 +18,23 @@ public class form1 {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "Bienvenido");
                 JFrame frame = new JFrame("Bienvenido");
-                frame.setContentPane(new ingreso().jpanel);
+                frame.setContentPane(new busqueda().mainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(1024, 768);
                 frame.setPreferredSize(new Dimension(1024, 768));
-                frame.setMinimumSize(new Dimension(1024, 768));
                 frame.pack();
                 frame.setVisible(true);
 
                 // Cierra la ventana actual
-                ((JFrame) SwingUtilities.getWindowAncestor(registrar)).dispose();
+                ((JFrame) SwingUtilities.getWindowAncestor(buscar)).dispose();
             }
         });
         registrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bienvenido");
                 JFrame frame = new JFrame("Bienvenido");
                 frame.setContentPane(new ingreso().jpanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(1024, 768);
-                frame.setPreferredSize(new Dimension(1024, 768));
-                frame.setMinimumSize(new Dimension(1024, 768));
+                frame.setPreferredSize(new Dimension(1000, 700));
                 frame.pack();
                 frame.setVisible(true);
 

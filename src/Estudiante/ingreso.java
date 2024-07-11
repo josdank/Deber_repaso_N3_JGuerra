@@ -1,6 +1,7 @@
 package Estudiante;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -16,6 +17,7 @@ public class ingreso {
     private JTextField b2;
     private JButton Registrar;
     public JPanel jpanel;
+    private JButton volverButton;
 
     public ingreso() {
         Registrar.addActionListener(new ActionListener() {
@@ -36,8 +38,8 @@ public class ingreso {
 
                 //Inserción de la base
                 try {
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Registro", "root", "");
-                    String sql = "INSERT INTO estudiante1 (nombre, apellido, cedula, b1, b2) VALUES (?, ?, ?, ?, ?)";
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/base", "root", "");
+                    String sql = "INSERT INTO base_estudiante (nombre, apellido, cedula, b1, b2) VALUES (?, ?, ?, ?, ?)";
                     PreparedStatement pstmt = conn.prepareStatement(sql);
                     pstmt.setString(1, nombreEstudiante);
                     pstmt.setString(2, apellidoEstudiante);
@@ -52,5 +54,21 @@ public class ingreso {
                 }
             }
         });
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("Sistema de gestión de estudiantes");
+                frame.setContentPane(new form1().mainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(800, 700);
+                frame.pack();
+                frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
+
+                // Cierra la ventana actual
+                ((JFrame) SwingUtilities.getWindowAncestor(volverButton)).dispose();
+            }
+        });
+
     }
 }

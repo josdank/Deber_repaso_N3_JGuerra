@@ -8,7 +8,7 @@ public class Main {
         JFrame frame = new JFrame("Sistema de gestión de estudiantes");
         frame.setContentPane(new form1().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 900);
+        frame.setSize(800, 700);
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
